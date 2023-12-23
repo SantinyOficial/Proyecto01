@@ -1,15 +1,19 @@
-package com.santiny.proyecto01.models.entities;
+package com.santiny.proyecto01.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tbl_personas")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Persona {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_persona")
     private Long id;
 
@@ -21,9 +25,9 @@ public class Persona {
 
 }
 
-/*Toda clase que se quiera Mapear como una tabla en una base de datos
+/*
+Toda clase que se quiera Mapear como una tabla en una base de datos
 debe llevar la anotacion @Entity
 
 Una tabla siempre debe tener un primary key, eso es con @Id
-
 */
